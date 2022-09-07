@@ -1,7 +1,7 @@
 {
-    "name": "Safari NewTab",
-    "short_name": "newtab",
-    "start_url": "https://safari.awayne.me",
+    "name": "App Collection",
+    "short_name": "appcollection",
+    "start_url": "https://app.awayne.me",
     "icons":
     [
         {
