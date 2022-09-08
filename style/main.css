@@ -208,7 +208,6 @@ main {
 
 .container {
     position: relative;
-    width: 100vw;
     max-width: 100rem;
     margin: 0 auto;
     padding: 0 2rem;
