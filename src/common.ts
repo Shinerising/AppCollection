@@ -64,11 +64,11 @@ export class Data {
     return `
 <section class="repo">
 <div class="repo-cover">
-<img src="https://raw.githubusercontent.com/${repo.full_name}/master/preview.jpg"/>
+<img src="${Config.Content}/${repo.full_name}/contents/preview.jpg"/>
 </div>
 <div class="repo-info">
 <div class="repo-icon">
-<img src="https://raw.githubusercontent.com/${repo.full_name}/master/icon.png">
+<img src="${Config.Content}/${repo.full_name}/contents/icon.png">
 </div>
 <h2 class="repo-title">${info.full_name || repo.name}</h2>
 <div class="repo-labelbox">
