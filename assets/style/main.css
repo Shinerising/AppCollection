@@ -491,6 +491,10 @@ footer>.info {
         background: linear-gradient(75deg, #04283A, #2B3053);
     }
 
+    .repo-cover{
+        background-color: #000;
+    }
+
     .repo-cover>img {
         filter: brightness(.5);
     }
