@@ -45,8 +45,8 @@ export class Data {
     DOM.card.addClass('visible');
 
     for (const item of list) {
-      const repo = await this.fetchData<Repository>(`${Config.API}\\${Config.Owner}\\${item.name}`);
-      const releases = await this.fetchData<Release[]>(`${Config.API}\\${Config.Owner}\\${item.name}\\releases`);
+      const repo = await this.fetchData<Repository>(`${Config.API}/${Config.Owner}/${item.name}`);
+      const releases = await this.fetchData<Release[]>(`${Config.API}/${Config.Owner}/${item.name}/releases`);
       const node = this.generateNode(item, repo, releases);
       this.applyNode(node);
     }
@@ -61,7 +61,6 @@ export class Data {
   private static generateNode(info:RepoInfo, repo: Repository, releases: Release[]): string {
     const releaseNormal = releases.filter(item => !item.prerelease)[0];
     const releasePreview = releases.filter(item => item.prerelease)[0];
-    const release = releaseNormal || releasePreview;
     return `
 <section class="repo">
 <div class="repo-cover">
@@ -78,9 +77,9 @@ export class Data {
 <p class="repo-description">${repo.description}</p>
 </div>
 <div class="repo-link">
-<a class="link-github icon-github" href="${repo.html_url}">SOURCE CODE</a>
-<a class="link-github icon-tag" href="${release?.html_url || ''}">${release.prerelease ? 'PREVIEW' : release?.name.toUpperCase() || 'None'}</a>
-<a class="link-github icon-download" href="${release?.assets[0].browser_download_url || ''}">DOWNLOAD</a>
+<a class="link-github icon-tag" href="${releasePreview?.html_url || ''}">Release</a>
+<a class="link-github icon-download" href="${releasePreview?.assets[0] ? `${releasePreview.assets[0].url.replace('https://api.github.com/repos', Config.Download)}?file=${releasePreview.assets[0].name}` : ''}">Preview</a>
+<a class="link-github icon-download" href="${releaseNormal?.assets[0]? `${releaseNormal.assets[0].url.replace('https://api.github.com/repos', Config.Download)}?file=${releaseNormal.assets[0].name}` : ''}">Package ${releaseNormal?.tag_name.toUpperCase() || 'Release'}</a>
 </div>
 </section>
     `;
