@@ -1,14 +1,26 @@
 [
     {
         "name": "ComTransfer",
-        "full_name" : "自动化串口文件传输工具"
+        "full_name" : "自动化串口文件传输工具",
+        "document" : "#",
+        "platform" : "Windows"
     },
     {
         "name": "NIAS",
-        "full_name" : "NIAS 网络智能分析系统"
+        "full_name" : "NIAS 网络智能分析系统",
+        "document" : "#",
+        "platform" : "Windows"
     },
     {
         "name": "NetSpector",
-        "full_name" : "网络适配器快速设置工具"
+        "full_name" : "网络适配器快速设置工具",
+        "document" : "#",
+        "platform" : "Windows"
+    },
+    {
+        "name": "DatabaseManager-cs",
+        "full_name" : "数据库快速管理器",
+        "document" : "#",
+        "platform" : "Windows"
     }
 ]
