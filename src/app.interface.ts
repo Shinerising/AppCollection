@@ -1,6 +1,8 @@
 export interface RepoInfo {
   name: string;
   full_name: string;
+  document: string;
+  platform: string;
 }
 export interface Repository {
   id: number;

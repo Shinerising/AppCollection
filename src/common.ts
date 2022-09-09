@@ -67,17 +67,25 @@ export class Data {
 <img src="${Config.Content}/${repo.full_name}/contents/preview.jpg"/>
 </div>
 <div class="repo-info">
+<div class="repo-header">
 <div class="repo-icon">
 <img src="${Config.Content}/${repo.full_name}/contents/icon.png">
 </div>
-<h2 class="repo-title">${info.full_name || repo.name}</h2>
+<h2 class="repo-title"><a href="${repo.html_url}">${info.full_name || repo.name}</a></h2>
+</div>
 <div class="repo-labelbox">
 <span>${repo.language}</span>${repo.topics.map(item => `<span>${item}</span>`).join('')}
 </div>
 <p class="repo-description">${repo.description}</p>
+<ul class="repo-property">
+<li class="icon-monitor">${info.platform}</li>
+<li class="icon-clock">${this.timeDifference((new Date()).getTime(), new Date(repo.updated_at).getTime())}</li>
+<li class="icon-code">${this.getSize(repo.size)}</li>
+<li class="icon-tag">${releaseNormal?.tag_name.toUpperCase() || 'Release'}</li>
+</ul>
 </div>
 <div class="repo-link">
-<a class="link-github icon-tag" href="${releasePreview?.html_url || ''}">Release</a>
+<a class="link-github icon-book-open" href="${info.document}">Document</a>
 <a class="link-github icon-download" href="${releasePreview?.assets[0] ? `${releasePreview.assets[0].url.replace('https://api.github.com/repos', Config.Download)}?file=${releasePreview.assets[0].name}` : ''}">Preview</a>
 <a class="link-github icon-download" href="${releaseNormal?.assets[0]? `${releaseNormal.assets[0].url.replace('https://api.github.com/repos', Config.Download)}?file=${releaseNormal.assets[0].name}` : ''}">Package ${releaseNormal?.tag_name.toUpperCase() || 'Release'}</a>
 </div>
@@ -88,6 +96,49 @@ export class Data {
   private static async fetchData<T>(url: string): Promise<T> {
     return await fetch(url).then((res) => res.json()).then(res => <T>res);
   }
+
+  private static getSize(size:number):string {
+    if (size < 1024) {
+      return size + 'KB'; 
+    }
+    return Math.round(size/1024) + 'MB';
+  }
+
+  private static timeDifference(current:number, previous:number):string {
+    const rtf = new Intl.RelativeTimeFormat(navigator.language || 'en');
+
+    const msPerMinute = 60 * 1000;
+    const msPerHour = msPerMinute * 60;
+    const msPerDay = msPerHour * 24;
+    const msPerMonth = msPerDay * 30;
+    const msPerYear = msPerDay * 365;
+
+    const elapsed = current - previous;
+
+    if (elapsed < msPerMinute) {
+         return rtf.format(Math.round(elapsed/1000)*-1,'second');   
+    }
+
+    else if (elapsed < msPerHour) {
+         return rtf.format(Math.round(elapsed/msPerMinute)*-1,'minute');     
+    }
+
+    else if (elapsed < msPerDay ) {
+         return rtf.format(Math.round(elapsed/msPerHour)*-1,'hour');   
+    }
+
+    else if (elapsed < msPerMonth) {
+        return rtf.format(Math.round(elapsed/msPerDay)*-1,'day');    
+    }
+
+    else if (elapsed < msPerYear) {
+        return rtf.format(Math.round(elapsed/msPerMonth)*-1,'month');    
+    }
+
+    else {
+        return rtf.format(Math.round(elapsed/msPerYear)*-1,'year');    
+    }
+}
 }
 /**
  * DOM API
