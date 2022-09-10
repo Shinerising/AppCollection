@@ -26,8 +26,8 @@ export class Data {
     DOM.card.addClass('visible')
 
     list.map(async item => {
-      const wrapper = document.createElement('div');
-      wrapper.addClass('repo-wrapper');
+      const wrapper = document.createElement('section');
+      wrapper.addClass('repo');
       DOM.collection.appendChild(wrapper);
       try {
         const repo = await this.fetchData<Repository>(`${Config.API}/${Config.Owner}/${item.name}`)
@@ -50,14 +50,13 @@ export class Data {
     const releaseNormal = releases.filter(item => !item.prerelease)[0]
     const releasePreview = releases.filter(item => item.prerelease)[0]
     return `
-<section class="repo">
 <div class="repo-cover">
-<img src="${Config.Content}/${repo.full_name}/contents/preview.jpg"/>
+<img src="${Config.Content}/${repo.full_name}/contents/preview.jpg" alt="${repo.description}" loading="lazy"/>
 </div>
 <div class="repo-info">
 <div class="repo-header">
 <div class="repo-icon">
-<img src="${Config.Content}/${repo.full_name}/contents/icon.png">
+<img src="${Config.Content}/${repo.full_name}/contents/icon.png" alt="${repo.name}" loading="lazy">
 </div>
 <h2 class="repo-title"><a href="${repo.html_url}">${info.full_name || repo.name}</a></h2>
 </div>
@@ -77,7 +76,6 @@ export class Data {
 <a class="link-github icon-download" href="${releasePreview?.assets[0] ? `${releasePreview.assets[0].url.replace('https://api.github.com/repos', Config.Download)}?file=${releasePreview.assets[0].name}` : ''}">Preview</a>
 <a class="link-github icon-download" href="${releaseNormal?.assets[0] ? `${releaseNormal.assets[0].url.replace('https://api.github.com/repos', Config.Download)}?file=${releaseNormal.assets[0].name}` : ''}">Package ${releaseNormal?.tag_name.toUpperCase() || 'Release'}</a>
 </div>
-</section>
     `
   }
 
