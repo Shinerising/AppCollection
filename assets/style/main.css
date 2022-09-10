@@ -253,6 +253,7 @@ main {
 }
 
 .repo {
+    height: 100%;
     display: flex;
     flex-direction: column;
     border-radius: .5rem;
@@ -393,7 +394,7 @@ ul.repo-property {
 }
 
 .repo-link {
-    padding: 1rem 1.5rem 0rem 1.5rem;
+    padding: .5rem;
     background-color: rgba(255, 255, 255, .5);
     display: flex;
     flex-wrap: wrap;
@@ -406,13 +407,8 @@ ul.repo-property {
     font-size: .8rem;
     line-height: 120%;
     padding: .5rem .7rem .5rem .5rem;
-    margin-right: 1rem;
-    margin-bottom: 1rem;
+    margin: .5rem;
     transition: background-color .3s, color .3s;
-}
-
-.repo-link>a:last-child {
-    margin-right: none;
 }
 
 .repo-link>a:hover {
