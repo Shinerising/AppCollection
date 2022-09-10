@@ -22,5 +22,11 @@
         "full_name" : "数据库快速管理器",
         "document" : "#",
         "platform" : "Windows"
+    },
+    {
+        "name": "TW-DataBackup",
+        "full_name" : "日志数据备份工具",
+        "document" : "#",
+        "platform" : "Windows"
     }
 ]
