@@ -240,21 +240,24 @@ main {
     gap: 4rem;
 }
 
-.repo {
-    display: flex;
-    flex-direction: column;
-    border-radius: .5rem;
-    overflow: hidden;
-    background: linear-gradient(25deg, #EFF7F6, #B2F7EF);
+.repo-wrapper{
     opacity: 0;
     transform-origin: center center;
     transform: scale(1.1);
     transition: opacity ease-out .35s, transform ease-out .35s;
 }
 
-.repo.visible {
+.repo-wrapper.visible {
     opacity: 1;
     transform: none;
+}
+
+.repo {
+    display: flex;
+    flex-direction: column;
+    border-radius: .5rem;
+    overflow: hidden;
+    background: linear-gradient(25deg, #EFF7F6, #B2F7EF);
 }
 
 .repo-cover {

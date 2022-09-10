@@ -25,18 +25,21 @@ export class Data {
 
     DOM.card.addClass('visible')
 
-    for (const item of list) {
+    list.map(async item => {
+      const wrapper = document.createElement('div');
+      wrapper.addClass('repo-wrapper');
+      DOM.collection.appendChild(wrapper);
       const repo = await this.fetchData<Repository>(`${Config.API}/${Config.Owner}/${item.name}`)
       const releases = await this.fetchData<Release[]>(`${Config.API}/${Config.Owner}/${item.name}/releases`)
       const node = this.generateNode(item, repo, releases)
-      this.applyNode(node)
-    }
+      await this.applyNode(wrapper, node)
+    }) 
   }
 
-  private static async applyNode (node: string) {
-    DOM.collection.innerHTML += node
+  private static async applyNode (wrapper: HTMLElement, node: string) {
+    wrapper.innerHTML += node
     await Util.nextFrame()
-    DOM.queryAll('section.repo').forEach(item => item.addClass('visible'))
+    wrapper.addClass('visible')
   }
 
   private static generateNode (info:RepoInfo, repo: Repository, releases: Release[]): string {
