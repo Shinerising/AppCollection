@@ -222,7 +222,7 @@ main {
     margin: 2rem 0;
     min-height: 20rem;
     background-color: #FFF;
-    border-radius: 1rem;
+    border-radius: 2rem;
     overflow: hidden;
     transform: translateY(25vh);
     transition: transform .5s;
@@ -240,24 +240,22 @@ main {
     gap: 4rem;
 }
 
-.repo-wrapper{
+.repo {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    overflow: hidden;
+    background: linear-gradient(25deg, #EFF7F6, #B2F7EF);
     opacity: 0;
     transform-origin: center center;
     transform: scale(1.1);
     transition: opacity ease-out .35s, transform ease-out .35s;
 }
 
-.repo-wrapper.visible {
+.repo.visible {
     opacity: 1;
     transform: none;
-}
-
-.repo {
-    display: flex;
-    flex-direction: column;
-    border-radius: .5rem;
-    overflow: hidden;
-    background: linear-gradient(25deg, #EFF7F6, #B2F7EF);
 }
 
 .repo-cover {
@@ -393,7 +391,7 @@ ul.repo-property {
 }
 
 .repo-link {
-    padding: 1rem 1.5rem 0rem 1.5rem;
+    padding: .5rem;
     background-color: rgba(255, 255, 255, .5);
     display: flex;
     flex-wrap: wrap;
@@ -406,13 +404,8 @@ ul.repo-property {
     font-size: .8rem;
     line-height: 120%;
     padding: .5rem .7rem .5rem .5rem;
-    margin-right: 1rem;
-    margin-bottom: 1rem;
+    margin: .5rem;
     transition: background-color .3s, color .3s;
-}
-
-.repo-link>a:last-child {
-    margin-right: none;
 }
 
 .repo-link>a:hover {
@@ -463,6 +456,9 @@ footer>.info {
     .container {
         padding-left: max(2rem, env(safe-area-inset-left, 2rem));
         padding-right: max(2rem, env(safe-area-inset-right, 2rem));
+    }
+    footer {
+        padding-bottom: env(safe-area-inset-bottom);
     }
 }
 
