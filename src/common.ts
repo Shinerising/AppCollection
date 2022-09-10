@@ -2,7 +2,7 @@ import { RepoInfo, Repository, Release } from './app.interface'
 import { Config } from './config'
 
 export class Util {
-  public static async timeout (delay: number): Promise<boolean> {
+  public static async timeout(delay: number): Promise<boolean> {
     return new Promise<boolean>(resolve => {
       setTimeout(() => {
         resolve(true)
@@ -10,7 +10,7 @@ export class Util {
     })
   }
 
-  public static async nextFrame (): Promise<boolean> {
+  public static async nextFrame(): Promise<boolean> {
     return new Promise<boolean>(resolve => {
       requestAnimationFrame(() => {
         resolve(true)
@@ -20,7 +20,7 @@ export class Util {
 }
 
 export class Data {
-  public static async startFetching () {
+  public static async startFetching() {
     const list = await this.fetchData<RepoInfo[]>('list.json')
 
     DOM.card.addClass('visible')
@@ -29,20 +29,24 @@ export class Data {
       const wrapper = document.createElement('div');
       wrapper.addClass('repo-wrapper');
       DOM.collection.appendChild(wrapper);
-      const repo = await this.fetchData<Repository>(`${Config.API}/${Config.Owner}/${item.name}`)
-      const releases = await this.fetchData<Release[]>(`${Config.API}/${Config.Owner}/${item.name}/releases`)
-      const node = this.generateNode(item, repo, releases)
-      await this.applyNode(wrapper, node)
-    }) 
+      try {
+        const repo = await this.fetchData<Repository>(`${Config.API}/${Config.Owner}/${item.name}`)
+        const releases = await this.fetchData<Release[]>(`${Config.API}/${Config.Owner}/${item.name}/releases`)
+        const node = this.generateNode(item, repo, releases)
+        await this.applyNode(wrapper, node)
+      } catch {
+        wrapper.remove()
+      }
+    })
   }
 
-  private static async applyNode (wrapper: HTMLElement, node: string) {
+  private static async applyNode(wrapper: HTMLElement, node: string) {
     wrapper.innerHTML += node
     await Util.nextFrame()
     wrapper.addClass('visible')
   }
 
-  private static generateNode (info:RepoInfo, repo: Repository, releases: Release[]): string {
+  private static generateNode(info: RepoInfo, repo: Repository, releases: Release[]): string {
     const releaseNormal = releases.filter(item => !item.prerelease)[0]
     const releasePreview = releases.filter(item => item.prerelease)[0]
     return `
@@ -77,18 +81,18 @@ export class Data {
     `
   }
 
-  private static async fetchData<T> (url: string): Promise<T> {
+  private static async fetchData<T>(url: string): Promise<T> {
     return await fetch(url).then((res) => res.json()).then(res => <T>res)
   }
 
-  private static getSize (size:number):string {
+  private static getSize(size: number): string {
     if (size < 1024) {
       return size + 'KB'
     }
     return Math.round(size / 1024) + 'MB'
   }
 
-  private static timeDifference (current:number, previous:number):string {
+  private static timeDifference(current: number, previous: number): string {
     const rtf = new Intl.RelativeTimeFormat(navigator.language || 'en')
 
     const msPerMinute = 60 * 1000
@@ -127,7 +131,7 @@ export class DOM {
   /**
    * Load common nodes
    */
-  public static load () {
+  public static load() {
     this.sitename = document.querySelector('#sitename') as HTMLElement
     this.titleBox = document.querySelector('#title') as HTMLElement
     this.coverGlass = document.querySelector('#cover>.cover-glass') as HTMLElement
@@ -140,7 +144,7 @@ export class DOM {
    * @param  {string} selector Selector
    * @return {HTMLElement} DOM element
    */
-  public static query (selector: string): HTMLElement {
+  public static query(selector: string): HTMLElement {
     return document.querySelector(selector) as HTMLElement
   }
 
@@ -149,7 +153,7 @@ export class DOM {
    * @param  {string} selector Selector
    * @return {NodeListOf<HTMLElement>} DOM Elements
    */
-  public static queryAll (selector: string): NodeListOf<HTMLElement> {
+  public static queryAll(selector: string): NodeListOf<HTMLElement> {
     return document.querySelectorAll(selector)
   }
 }
