@@ -51,12 +51,12 @@ export class Data {
     const releasePreview = releases.filter(item => item.prerelease)[0]
     return `
 <div class="repo-cover">
-<img src="${Config.Content}/${repo.full_name}/contents/preview.jpg" alt="${repo.description}" loading="lazy"/>
+<img src="${Config.Content}/${repo.full_name}/contents/preview.jpg" alt="${repo.description}"/>
 </div>
 <div class="repo-info">
 <div class="repo-header">
 <div class="repo-icon">
-<img src="${Config.Content}/${repo.full_name}/contents/icon.png" alt="${repo.name}" loading="lazy">
+<img src="${Config.Content}/${repo.full_name}/contents/icon.png" alt="${repo.name}">
 </div>
 <h2 class="repo-title"><a href="${repo.html_url}">${info.full_name || repo.name}</a></h2>
 </div>
