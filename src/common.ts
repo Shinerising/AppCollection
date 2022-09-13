@@ -68,7 +68,7 @@ export class Data {
 <li class="icon-monitor" title="Platform">${info.platform}</li>
 <li class="icon-tag" title="Latest version">${releaseNormal?.tag_name.toUpperCase() || 'Preview'}</li>
 <li class="icon-code" title="Code size">${this.getSize(repo.size)}</li>
-<li class="icon-clock" title="Updated time">${this.timeDifference((new Date()).getTime(), new Date(repo.updated_at).getTime())}</li>
+<li class="icon-clock" title="Updated time">${this.timeDifference((new Date()).getTime(), new Date(repo.pushed_at).getTime())}</li>
 </ul>
 </div>
 <div class="repo-link">
