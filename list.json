@@ -34,5 +34,11 @@
         "full_name" : "日志数据备份工具",
         "document" : "#",
         "platform" : "Windows"
+    },
+    {
+        "name": "SwitchQuickSetup",
+        "full_name" : "交换机快速配置工具",
+        "document" : "#",
+        "platform" : "Windows"
     }
 ]
