@@ -145,3 +145,15 @@ export interface Release {
   author: Author;
   assets: Asset[];
 }
+export interface Package {
+  id: number;
+  name: string;
+  package_type: string;
+  owner: Author;
+  visibility: string;
+  url: string;
+  created_at: Date;
+  updated_at: Date;
+  repository: Repository;
+  html_url: string;
+}

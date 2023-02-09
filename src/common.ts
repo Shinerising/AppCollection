@@ -1,4 +1,4 @@
-import { RepoInfo, Repository, Release } from './app.interface'
+import { RepoInfo, Repository, Release, Package } from './app.interface'
 import { Config } from './config'
 
 export class Util {
@@ -25,6 +25,8 @@ export class Data {
 
     DOM.card.addClass('visible')
 
+    const packages = await this.fetchData<Package[]>(`${Config.User}/${Config.Owner}/packages?package_type=container`)
+
     list.map(async item => {
       const wrapper = document.createElement('section');
       wrapper.addClass('repo');
@@ -32,7 +34,7 @@ export class Data {
       try {
         const repo = await this.fetchData<Repository>(`${Config.API}/${Config.Owner}/${item.name}`)
         const releases = await this.fetchData<Release[]>(`${Config.API}/${Config.Owner}/${item.name}/releases`)
-        const node = this.generateNode(item, repo, releases)
+        const node = this.generateNode(item, repo, releases, packages.filter(pkg => pkg.repository.full_name === repo.full_name))
         await this.applyNode(wrapper, node)
       } catch {
         wrapper.remove()
@@ -46,9 +48,10 @@ export class Data {
     wrapper.addClass('visible')
   }
 
-  private static generateNode(info: RepoInfo, repo: Repository, releases: Release[]): string {
+  private static generateNode(info: RepoInfo, repo: Repository, releases: Release[], packages: Package[] = []): string {
     const releaseNormal = releases.filter(item => !item.prerelease)[0]
     const releasePreview = releases.filter(item => item.prerelease)[0]
+    const packageContent = packages.map(pkg => `<a class="link-github icon-github" href="${pkg.html_url}">${pkg.name.toUpperCase()}</a>`)
     return `
 <div class="repo-cover">
 <img src="${Config.Content}/${repo.full_name}/contents/preview.jpg" alt="${repo.description}"/>
@@ -75,6 +78,7 @@ export class Data {
 <a class="link-github icon-book-open" href="${info.document}">Document</a>
 <a class="link-github icon-download" href="${releasePreview?.assets[0] ? `${releasePreview.assets[0].url.replace('https://api.github.com/repos', Config.Download)}?file=${releasePreview.assets[0].name}` : ''}">Preview</a>
 <a class="link-github icon-download" href="${releaseNormal?.assets[0] ? `${releaseNormal.assets[0].url.replace('https://api.github.com/repos', Config.Download)}?file=${releaseNormal.assets[0].name}` : ''}">Package ${releaseNormal?.tag_name.toUpperCase() || 'Release'}</a>
+${packageContent}
 </div>
     `
   }

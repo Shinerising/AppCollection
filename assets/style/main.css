@@ -280,7 +280,7 @@ main {
 .repo-info {
     position: relative;
     flex: 1;
-    font-family: Lato, Verdana, Geneva, Tahoma, 'PingFang SC', sans-serif;
+    font-family: Verdana, Geneva, Tahoma, 'PingFang SC', sans-serif;
     display: flex;
     flex-direction: column;
 }
