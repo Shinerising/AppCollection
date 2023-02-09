@@ -13,7 +13,7 @@
     },
     {
         "name": "CROP-Cloud-Service",
-        "full_name" : "CROP 云端服务",
+        "full_name" : "CROP 云端服务组件",
         "document" : "#",
         "platform" : "Docker"
     },
