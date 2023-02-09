@@ -6,6 +6,18 @@
         "platform" : "Windows"
     },
     {
+        "name": "RemoteManager",
+        "full_name" : "CROP 集成式客户端软件",
+        "document" : "#",
+        "platform" : "Windows"
+    },
+    {
+        "name": "CROP-Cloud-Service",
+        "full_name" : "CROP 云端服务",
+        "document" : "#",
+        "platform" : "Docker"
+    },
+    {
         "name": "NIAS",
         "full_name" : "NIAS 网络智能分析系统",
         "document" : "https://onedrive.live.com/?authkey=%21AKoTHElgK3hNzhk&id=F900E1D4DA738D1C%215657&cid=F900E1D4DA738D1C",
@@ -14,6 +26,12 @@
     {
         "name": "NetSpector",
         "full_name" : "网络适配器快速设置工具",
+        "document" : "#",
+        "platform" : "Windows"
+    },
+    {
+        "name": "SwitchQuickSetup",
+        "full_name" : "交换机快速配置工具",
         "document" : "#",
         "platform" : "Windows"
     },
@@ -32,12 +50,6 @@
     {
         "name": "TW-DataBackup",
         "full_name" : "日志数据备份工具",
-        "document" : "#",
-        "platform" : "Windows"
-    },
-    {
-        "name": "SwitchQuickSetup",
-        "full_name" : "交换机快速配置工具",
         "document" : "#",
         "platform" : "Windows"
     }
