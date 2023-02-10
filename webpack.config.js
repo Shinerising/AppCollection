@@ -1,13 +1,12 @@
-const { GenerateSW } = require('workbox-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
+import { GenerateSW } from 'workbox-webpack-plugin';
+import CopyPlugin from 'copy-webpack-plugin';
 
-module.exports = {
+export default {
   entry: "./index.ts",
   plugins: [
     new GenerateSW({
       clientsClaim: true,
-      skipWaiting: true,
-      exclude: [/\.DS*/, /^.*ico$/, /^.*svg$/, /^.*jpg$/, /^.*png$/, 'CNAME'],
+      skipWaiting: true
     }),
     new CopyPlugin({
       patterns: [
