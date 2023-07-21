@@ -24,6 +24,12 @@
         "platform" : "Windows"
     },
     {
+        "name": "StationStats",
+        "full_name" : "TW 历史数据分析系统",
+        "document" : "#",
+        "platform" : "Docker"
+    },
+    {
         "name": "NetSpector",
         "full_name" : "网络适配器快速设置工具",
         "document" : "#",
