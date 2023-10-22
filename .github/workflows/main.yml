@@ -36,7 +36,6 @@ jobs:
         run: |
           npm ci
           npm run build
-          ls -la dist
 
       # Runs a set of commands using the runners shell
       - name: Deploy to GitHub Pages

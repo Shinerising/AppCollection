@@ -8,6 +8,4 @@
 
 .DS_Store
 
-/dist/
-
-/public/
+/dist
