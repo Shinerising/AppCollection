@@ -15,6 +15,6 @@ const locale = {
   }
 }
 
-export const culture = navigator.language.startsWith('zh') ? 'zh' : 'en';
-const dict = locale[culture];
+export const culture = navigator.language.startsWith("zh") ? "zh" : "en"
+const dict = locale[culture]
 export const _ = (key:keyof typeof dict) => dict[key]

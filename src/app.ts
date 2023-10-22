@@ -1,4 +1,4 @@
-import { Util, Data, DOM } from './common'
+import { Util, Data, DOM } from "./common"
 
 HTMLElement.prototype.addClass = function (className: string) {
   if (!this.classList.contains(className)) {
@@ -19,8 +19,8 @@ HTMLElement.prototype.toggleClass = function (className: string) {
   }
 }
 HTMLElement.prototype.val = function (value?: string) {
-  if (value === '') {
-    (<HTMLInputElement> this).value = ''
+  if (value === "") {
+    (<HTMLInputElement> this).value = ""
   } else if (value) {
     (<HTMLInputElement> this).value = value
   }
@@ -42,7 +42,7 @@ export class App {
 
     DOM.load()
 
-    this.startTypingTitle('Sic Parvis Magna.')
+    this.startTypingTitle("Sic Parvis Magna.")
 
     this.addScrollHandler()
 
@@ -51,12 +51,12 @@ export class App {
 
   private async startTypingTitle (title: string) {
     await Util.timeout(500)
-    DOM.query('#titleBox').style.opacity = '1'
-    DOM.query('#titleBack').textContent = title
+    DOM.query("#titleBox").style.opacity = "1"
+    DOM.query("#titleBack").textContent = title
     await Util.timeout(1000)
-    for (const char of title.split('')) {
+    for (const char of title.split("")) {
       await Util.timeout(50 + Math.round(Math.random() * 200))
-      DOM.titleBox.innerHTML += char === ' ' ? '&nbsp;' : char
+      DOM.titleBox.innerHTML += char === " " ? "&nbsp;" : char
     }
   }
 
@@ -66,7 +66,7 @@ export class App {
 
     this.setScrollValue(position)
 
-    document.addEventListener('scroll', () => {
+    document.addEventListener("scroll", () => {
       position = window.scrollY
 
       if (!ticking) {
@@ -86,9 +86,9 @@ export class App {
     const blurText = Math.min(2, Math.min(offset / 100, 10) - 2)
     const opacity = Math.max(0, 2 - Math.max(offset / 200, 1))
     const filter = `saturate(180%) blur(${blurImage}rem)`
-    DOM.coverGlass.setAttribute('style', `-webkit-backdrop-filter:${filter};backdrop-filter:${filter}`)
-    DOM.titleBox.setAttribute('style', `filter:blur(${blurText}rem);opacity:${opacity}`)
-    DOM.sitename.setAttribute('style', `filter:blur(${blur}rem);opacity:${opacity}`)
+    DOM.coverGlass.setAttribute("style", `-webkit-backdrop-filter:${filter};backdrop-filter:${filter}`)
+    DOM.titleBox.setAttribute("style", `filter:blur(${blurText}rem);opacity:${opacity}`)
+    DOM.sitename.setAttribute("style", `filter:blur(${blur}rem);opacity:${opacity}`)
   }
 
   /**
@@ -97,14 +97,14 @@ export class App {
    */
   private waitDocumentReady (): Promise<boolean> {
     return new Promise<boolean>((resolve) => {
-      if (document.readyState === 'complete' || document.readyState === 'interactive') {
+      if (document.readyState === "complete" || document.readyState === "interactive") {
         resolve(true)
       } else {
         const callback = () => {
-          document.removeEventListener('DOMContentLoaded', callback)
+          document.removeEventListener("DOMContentLoaded", callback)
           resolve(true)
         }
-        document.addEventListener('DOMContentLoaded', callback)
+        document.addEventListener("DOMContentLoaded", callback)
       }
     })
   }
