@@ -406,6 +406,7 @@ ul.repo-property {
   line-height: 120%;
   padding: .5rem .7rem .5rem .5rem;
   margin: .5rem;
+  text-transform: uppercase;
   transition: background-color .3s, color .3s;
 }
 

@@ -35,7 +35,6 @@ export class Data {
       try {
         const repo = await this.fetchData<Repository>(`${Config.API}/${Config.Owner}/${item.name}`)
         const releases = await this.fetchData<Release[]>(`${Config.API}/${Config.Owner}/${item.name}/releases`)
-        console.log(releases);
         const node = this.generateNode(item, repo, releases, packages.filter(pkg => pkg.repository.full_name === repo.full_name))
         await this.applyNode(wrapper, node)
       } catch {
@@ -53,7 +52,7 @@ export class Data {
   private static generateNode(info: RepoInfo, repo: Repository, releases: Release[], packages: Package[] = []): string {
     const releaseNormal = releases.filter(item => !item.prerelease)[0]
     const releasePreview = releases.filter(item => item.prerelease)[0]
-    const packageContent = packages.map(pkg => `<a class="link-github icon-github" href="${pkg.html_url}">${pkg.name.toUpperCase()}</a>`)
+    const packageContent = packages.map(pkg => `<a class="link-github icon-github" href="${pkg.html_url}">${pkg.name}</a>`)
     return `
 <div class="repo-cover">
 <img src="${Config.Content}/${repo.full_name}/contents/preview.jpg" alt="${repo.description}"/>
@@ -63,7 +62,7 @@ export class Data {
 <div class="repo-icon">
 <img src="${Config.Content}/${repo.full_name}/contents/icon.png" alt="${repo.name}">
 </div>
-<h2 class="repo-title"><a href="${repo.html_url}">${info.locale[culture]?.full_name || info.full_name || repo.name}</a></h2>
+<h2 class="repo-title"><a href="${repo.html_url}">${info.locale ? (info.locale[culture]?.full_name || info.full_name) : info.full_name || repo.name}</a></h2>
 </div>
 <div class="repo-labelbox">
 <span>${repo.language}</span>${repo.topics.map(item => `<span>${item}</span>`).join('')}
