@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [
     eslint(),
   ],
-  publicDir: "public",
+  publicDir: "./public",
   resolve: {
     alias: {
       "@": "/src",
