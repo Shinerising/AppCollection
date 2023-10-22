@@ -4,6 +4,7 @@ export interface RepoInfo {
   document: string;
   platform: string;
   description?: string;
+  demo?: string;
   locale: {
     en?: {
       full_name?: string;

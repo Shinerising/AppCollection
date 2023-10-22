@@ -1,86 +1,74 @@
 @font-face {
-  font-family: 'fontello';
-  src: url('/font/fontello.eot?37330883');
-  src: url('/font/fontello.eot?37330883#iefix') format('embedded-opentype'),
-      url('/font/fontello.woff2?37330883') format('woff2'),
-      url('/font/fontello.woff?37330883') format('woff'),
-      url('/font/fontello.ttf?37330883') format('truetype'),
-      url('/font/fontello.svg?37330883#fontello') format('svg');
+  font-family: 'icomoon';
+  src: url('/fonts/icomoon.eot?vxnx4l');
+  src: url('/fonts/icomoon.eot?vxnx4l#iefix') format('embedded-opentype'),
+    url('/fonts/icomoon.ttf?vxnx4l') format('truetype'),
+    url('/fonts/icomoon.woff?vxnx4l') format('woff'),
+    url('/fonts/icomoon.svg?vxnx4l#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
-[class^="icon-"]:before,
-[class*=" icon-"]:before {
-  font-family: "fontello";
+[class^="icon-"]::before,
+[class*=" icon-"]::before {
+  font-family: 'icomoon' !important;
   font-size: 120%;
   font-style: normal;
   font-weight: normal;
   display: inline-block;
+  vertical-align: middle;
   text-decoration: inherit;
   width: 1em;
-  margin-right: .3em;
+  line-height: 1em;
+  margin-top: -0.1em;
+  margin-right: .4em;
   text-align: center;
   font-variant: normal;
   text-transform: none;
-  line-height: 1em;
-  margin-left: .1em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-download:before {
-  content: '\e800';
+.icon-globe:before {
+  content: "\e90b";
 }
 
-/* '' */
-.icon-github:before {
-  content: '\e801';
+.icon-info-circle:before {
+  content: "\e908";
 }
 
-/* '' */
-.icon-info-circled:before {
-  content: '\e802';
+.icon-desktop:before {
+  content: "\e906";
 }
 
-/* '' */
-.icon-dot:before {
-  content: '\e803';
-}
-
-/* '' */
 .icon-tag:before {
-  content: '\e804';
+  content: "\e907";
 }
 
-/* '' */
-.icon-clock:before {
-  content: '\e805';
+.icon-book:before {
+  content: "\e905";
 }
 
-/* '' */
-.icon-link:before {
-  content: '\e806';
+.icon-calendar:before {
+  content: "\e902";
 }
 
-/* '' */
-.icon-code:before {
-  content: '\e807';
+.icon-download:before {
+  content: "\e904";
 }
 
-/* '' */
-.icon-book-open:before {
-  content: '\e808';
+.icon-file-code-o:before {
+  content: "\e903";
 }
 
-/* '' */
-.icon-monitor:before {
-  content: '\e809';
+.icon-github:before {
+  content: "\e901";
 }
 
-/* '' */
-
+.icon-docker:before {
+  content: "\e900";
+}
 
 html {
   color: #222222;
@@ -98,7 +86,7 @@ body {
 
 a {
   text-decoration: none;
-  color: white;
+  color: #000;
 }
 
 input {
@@ -142,71 +130,21 @@ header {
 }
 
 #sitename {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   line-height: 3rem;
-  font-family: Georgia, serif;
-  font-style: italic;
-  font-weight: 400;
+  font-weight: bold;
   text-align: center;
   color: transparent;
-  margin: 0;
-  background-color: rgba(82, 96, 117, .5);
+  background-color: #0575E6;
+  background-image: linear-gradient(to right bottom, #00F260, #0575E6);
   -webkit-background-clip: text;
   background-clip: text;
-  text-shadow: rgb(255 255 255 / 50%) 0 0.3rem 0.4rem, rgb(255 255 255 / 20%) 0.1rem 0.3rem 0.3rem;
-  margin: 0.5rem 0;
-}
-
-#titlebox {
-  position: relative;
-  display: inline-block;
-  margin-top: max(25vh, 8rem);
-  color: rgb(50, 50, 93);
-  font-size: 2.4rem;
-  line-height: 120%;
-  font-weight: bold;
-  font-family: Menlo, 'Lucida Console', Courier, monospace;
-  opacity: 0;
-  transition: opacity .3s;
-}
-
-#title {
-  position: absolute;
-  text-shadow: 0 0 .5rem #FFF;
-}
-
-#title::after {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  right: -.15em;
-  width: .1em;
-  height: 1.2em;
-  background-color: rgb(50, 50, 93);
-  box-shadow: 0 0 .5rem #FFF;
-  animation: text-cursor 1.2s steps(1) infinite;
-}
-
-@keyframes text-cursor {
-
-  0%,
-  100% {
-      opacity: 0;
-  }
-
-  50% {
-      opacity: 1;
-  }
-}
-
-#titleback {
-  opacity: 0;
+  margin: 1rem 0;
 }
 
 main {
   position: relative;
-  padding-top: max(75vh, 20rem);
+  padding-top: 3rem;
   overflow: auto;
 }
 
@@ -221,8 +159,9 @@ main {
 .card {
   position: relative;
   margin: 2rem 0;
-  min-height: 20rem;
-  background-color: #FFF;
+  min-height: 60rem;
+  background-color: #FFFFFFB0;
+  backdrop-filter: blur(1rem);
   border-radius: 2rem;
   overflow: hidden;
   transform: translateY(25vh);
@@ -243,6 +182,7 @@ main {
 
 .repo {
   height: 100%;
+  min-height: 20rem;
   display: flex;
   flex-direction: column;
   border-radius: 1rem;
@@ -285,13 +225,16 @@ main {
   flex-direction: column;
 }
 
+.repo-header {
+  margin-top: -3rem;
+}
+
 .repo-icon {
   position: relative;
   width: 6rem;
   height: 6rem;
   float: left;
   margin: 0 1rem;
-  margin-top: -3rem;
   padding: 1rem;
   box-sizing: border-box;
 }
@@ -319,12 +262,15 @@ main {
 }
 
 .repo-title {
-  margin: 1rem;
-  margin-bottom: .75rem;
+  margin: 1.5rem 1rem;
+  margin-bottom: 0;
   font-size: 1.2rem;
-  font-weight: normal;
+  font-weight: bold;
   line-height: 120%;
   height: 1.5rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .repo-title>a {
@@ -337,50 +283,53 @@ main {
 }
 
 .repo-labelbox {
-  margin: 0 1.5rem 0 1.5rem;
+  margin: 1rem;
+  height: 1.5rem;
+  overflow: hidden;
+  text-align: left;
 }
 
 .repo-labelbox>span {
-  color: #777;
-  font-size: .75rem;
-  line-height: 120%;
-}
-
-.repo-labelbox>span::after {
-  content: '\e803';
-  font-family: "fontello";
-  font-size: 120%;
-  font-style: normal;
-  font-weight: normal;
   display: inline-block;
-  text-decoration: inherit;
-  width: 1em;
-  margin-right: .1em;
-  text-align: center;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1em;
-  margin-left: .1em;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.repo-labelbox>span:last-child::after {
-  content: none;
+  margin-right: 0.5rem;
+  color: #FFF;
+  background-color: #00000080;
+  border-radius: 1rem;
+  padding: .25rem .5rem;
+  font-size: .7rem;
+  line-height: 1rem;
 }
 
 .repo-description {
-  margin: .75rem 1.5rem;
+  margin: 0.5rem 1.5rem;
   font-size: .9rem;
-  line-height: 120%;
+  line-height: 150%;
   color: #668;
   flex: 1;
+}
+
+.repo-document {
+  margin: 0.5rem 1.5rem;
+  margin-bottom: 1rem;
+  font-size: .9rem;
+  line-height: 150%;
+}
+
+.repo-document>a {
+  margin-right: 1rem;
+  font-weight: bold;
+  color: #668;
+  transition: color .2s;
+}
+
+.repo-document>a:hover {
+  color: #458AA9;
 }
 
 ul.repo-property {
   display: flex;
   padding: 0;
-  margin: .25rem 1.5rem 1rem 1.5rem;
+  margin: 0.5rem 1.5rem;
   justify-content: space-between;
 }
 
@@ -399,12 +348,13 @@ ul.repo-property {
 }
 
 .repo-link>a {
+  font-weight: bold;
   background-color: #EEF0F5;
   color: #777;
   border-radius: 1rem;
   font-size: .8rem;
   line-height: 120%;
-  padding: .5rem .7rem .5rem .5rem;
+  padding: .5rem .75rem;
   margin: .5rem;
   text-transform: uppercase;
   transition: background-color .3s, color .3s;
@@ -415,7 +365,8 @@ ul.repo-property {
   color: #FFF;
 }
 
-.repo-link>a[href=''] {
+.repo-link>a[href=''],
+.repo-document>a[href=''] {
   display: none;
 }
 
@@ -457,119 +408,114 @@ footer>.info {
 
 @supports(padding: max(2rem, env(safe-area-inset-left, 0px))) {
   .container {
-      padding-left: max(2rem, env(safe-area-inset-left, 2rem));
-      padding-right: max(2rem, env(safe-area-inset-right, 2rem));
+    padding-left: max(2rem, env(safe-area-inset-left, 2rem));
+    padding-right: max(2rem, env(safe-area-inset-right, 2rem));
   }
+
   footer {
-      padding-bottom: env(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+@media only screen and (max-width: 1600px) {
+  .collection {
+    margin: 2rem;
+    gap: 2rem;
   }
 }
 
 @media only screen and (max-width: 1440px) {
   .collection {
-      margin: 2rem;
-      gap: 2rem;
-      grid-template-columns: repeat(2, 1fr);
+    margin: 2rem;
+    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media only screen and (max-width: 960px) {
   html {
-      font-size: 14px;
+    font-size: 14px;
   }
 }
 
 @media only screen and (max-width: 800px) {
   .collection {
-      margin: 2rem;
-      gap: 2rem;
-      grid-template-columns: repeat(1, 1fr);
+    margin: 2rem;
+    gap: 2rem;
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 
 @media only screen and (max-width: 640px) {
   html {
-      font-size: 12px;
+    font-size: 12px;
   }
 }
 
 @media (prefers-color-scheme: dark) {
   #cover>.cover-glass {
-      background-color: rgba(0, 0, 0, .5);
+    background-color: rgba(0, 0, 0, .5);
   }
 
   .card {
-      background-color: #12161F;
-      box-shadow: rgba(50, 50, 93, 0.25) 0rem 1rem 2rem -.5rem, rgba(0, 0, 0, 0.3) 0rem .5rem 1rem -.6rem;
+    background-color: #12161FB0;
+    box-shadow: rgba(50, 50, 93, 0.25) 0rem 1rem 2rem -.5rem, rgba(0, 0, 0, 0.3) 0rem .5rem 1rem -.6rem;
   }
 
   #sitename {
-      background-color: rgba(220, 220, 220, .5);
-      text-shadow: rgb(0 0 0 / 50%) 0 0.3rem 0.4rem, rgb(0 0 0 / 20%) 0.1rem 0.3rem 0.3rem;
-  }
-
-  #titlebox {
-      color: rgb(210, 210, 222);
-  }
-
-  #title {
-      text-shadow: 0 0 .5rem #000;
-  }
-
-  #title::after {
-      background-color: rgb(210, 210, 222);
-      box-shadow: 0 0 .5rem #000;
+    background-color: #51aadd;
+    background-image: linear-gradient(to right bottom, #2496ac, #51aadd);  
   }
 
   .repo {
-      background: linear-gradient(75deg, #04283A, #2B3053);
+    background: linear-gradient(75deg, #04283A, #2B3053);
   }
 
   .repo-cover {
-      background-color: #000;
+    background-color: #000;
   }
 
   .repo-cover>img {
-      filter: brightness(.5);
+    filter: brightness(.5);
   }
 
   .repo-icon::before {
-      background-image: url('data:image/svg+xml;utf8,<svg preserveAspectRatio="none" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><path d="M37.0828183,120 C23.473424,120 15.6489493,120 7.82447466,112.175525 C-4.66529593e-08,104.351051 0,96.526576 0,82.9171817 L0,37.0828183 C0,23.473424 -4.66529593e-08,15.6489493 7.82447466,7.82447466 C15.6489493,0 23.473424,0 37.0828183,0 L82.9171817,0 C96.526576,0 104.351051,0 112.175525,7.82447466 C120,15.6489493 120,23.473424 120,37.0828183 L120,82.9171817 C120,96.526576 120,104.351051 112.175525,112.175525 C104.351051,120 96.526576,120 82.9171817,120 L37.0828183,120 Z M37.0828183,120" fill="black"></path></svg>');
+    background-image: url('data:image/svg+xml;utf8,<svg preserveAspectRatio="none" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><path d="M37.0828183,120 C23.473424,120 15.6489493,120 7.82447466,112.175525 C-4.66529593e-08,104.351051 0,96.526576 0,82.9171817 L0,37.0828183 C0,23.473424 -4.66529593e-08,15.6489493 7.82447466,7.82447466 C15.6489493,0 23.473424,0 37.0828183,0 L82.9171817,0 C96.526576,0 104.351051,0 112.175525,7.82447466 C120,15.6489493 120,23.473424 120,37.0828183 L120,82.9171817 C120,96.526576 120,104.351051 112.175525,112.175525 C104.351051,120 96.526576,120 82.9171817,120 L37.0828183,120 Z M37.0828183,120" fill="black"></path></svg>');
   }
 
 
   .repo-title>a {
-      color: #EAEAF0;
+    color: #EAEAF0;
   }
 
   .repo-title>a:hover {
-      color: #8BC0D6;
+    color: #8BC0D6;
   }
 
   .repo-labelbox>span,
   .repo-property>li {
-      color: #888;
+    color: #888;
   }
 
   .repo-description {
-      color: #A5B3C0;
+    color: #A5B3C0;
   }
 
   .repo-link {
-      background-color: rgba(0, 0, 0, .3);
+    background-color: rgba(0, 0, 0, .3);
   }
 
   .repo-link>a {
-      background-color: #454560;
-      color: #DDD;
+    background-color: #454560;
+    color: #DDD;
   }
 
   .repo-link>a:hover {
-      background-color: #607AD2;
-      color: #222;
+    background-color: #607AD2;
+    color: #222;
   }
 
   footer>.info {
-      filter: brightness(.6);
+    filter: brightness(.6);
   }
 }

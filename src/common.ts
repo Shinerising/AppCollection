@@ -52,7 +52,7 @@ export class Data {
   private static generateNode(info: RepoInfo, repo: Repository, releases: Release[], packages: Package[] = []): string {
     const releaseNormal = releases.filter(item => !item.prerelease)[0]
     const releasePreview = releases.filter(item => item.prerelease)[0]
-    const packageContent = packages.map(pkg => `<a class="link-github icon-github" href="${pkg.html_url}">${pkg.name}</a>`)
+    const packageContent = packages.map(pkg => `<a class="link-github icon-docker" href="${pkg.html_url}">${pkg.name}</a>`)
     return `
 <div class="repo-cover">
 <img src="${Config.Content}/${repo.full_name}/contents/preview.jpg" alt="${repo.description}"/>
@@ -62,21 +62,26 @@ export class Data {
 <div class="repo-icon">
 <img src="${Config.Content}/${repo.full_name}/contents/icon.png" alt="${repo.name}">
 </div>
-<h2 class="repo-title"><a href="${repo.html_url}">${info.locale ? (info.locale[culture]?.full_name || info.full_name) : info.full_name || repo.name}</a></h2>
-</div>
 <div class="repo-labelbox">
 <span>${repo.language}</span>${repo.topics.map(item => `<span>${item}</span>`).join("")}
 </div>
-<p class="repo-description">${repo.description ?? _("BRIEF_NULL")}</p>
+<h2 class="repo-title"><a href="${repo.html_url}">${info.locale ? (info.locale[culture]?.full_name || info.full_name) : info.full_name || repo.name}</a></h2>
+</div>
 <ul class="repo-property">
-<li class="icon-monitor" title="Platform">${info.platform}</li>
-<li class="icon-tag" title="Latest version">${releaseNormal?.tag_name.toUpperCase() || "Preview"}</li>
-<li class="icon-code" title="Code size">${this.getSize(repo.size)}</li>
-<li class="icon-clock" title="Updated time">${this.timeDifference((new Date()).getTime(), new Date(repo.pushed_at).getTime())}</li>
+<li class="icon-desktop" title="Platform">${info.platform === "All" ? _("LABEL_PLATFORM_ALL") : info.platform}</li>
+<li class="icon-tag" title="Latest version">${releaseNormal?.tag_name.toUpperCase() || _("LABEL_PREVIEW")}</li>
+<li class="icon-file-code-o" title="Code size">${this.getSize(repo.size)}</li>
+<li class="icon-calendar" title="Updated time">${this.timeDifference((new Date()).getTime(), new Date(repo.pushed_at).getTime())}</li>
 </ul>
+<p class="repo-description">${info.locale ? (info.locale[culture]?.description || repo.description) : repo.description ?? _("BRIEF_NULL")}</p>
+<div class="repo-document">
+<a class="link icon-github" href="${repo.html_url}">${_("BUTTON_GITHUB")}</a>
+<a class="link icon-book" href="${info.document}">${_("BUTTON_DOCUMENT")}</a>
+<a class="link icon-globe" href="${info.demo ?? "" }">${_("BUTTON_DEMO")}</a>
+</div>
+<div class="empty"></div>
 </div>
 <div class="repo-link">
-<a class="link-github icon-book-open" href="${info.document}">${_("BUTTON_DOCUMENT")}</a>
 <a class="link-github icon-download" href="${releasePreview?.assets[0] ? `${releasePreview.assets[0].url.replace("https://api.github.com/repos", Config.Download)}?file=${releasePreview.assets[0].name}` : ""}">${_("BUTTON_PREVIEW")}</a>
 <a class="link-github icon-download" href="${releaseNormal?.assets[0] ? `${releaseNormal.assets[0].url.replace("https://api.github.com/repos", Config.Download)}?file=${releaseNormal.assets[0].name}` : ""}">${_("BUTTON_PACKAGE")} ${releaseNormal?.tag_name.toUpperCase() || "Release"}</a>
 ${packageContent}
@@ -125,9 +130,6 @@ ${packageContent}
  * DOM API
  */
 export class DOM {
-  public static sitename: HTMLElement
-  public static titleBox: HTMLElement
-  public static coverGlass: HTMLElement
   public static card: HTMLElement
   public static collection: HTMLElement
 
@@ -135,11 +137,11 @@ export class DOM {
    * Load common nodes
    */
   public static load() {
-    this.sitename = document.querySelector("#sitename") as HTMLElement
-    this.titleBox = document.querySelector("#title") as HTMLElement
-    this.coverGlass = document.querySelector("#cover>.cover-glass") as HTMLElement
     this.card = document.querySelector(".card") as HTMLElement
     this.collection = document.querySelector(".collection") as HTMLElement
+
+    DOM.query("title").textContent = _("SITE_TITLE")
+    DOM.query("#sitename").textContent = _("PAGE_TITLE")
   }
 
   /**
