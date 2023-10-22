@@ -1,0 +1,95 @@
+[
+  {
+    "name": "ComTransfer",
+    "full_name": "自动化串口文件传输工具",
+    "document": "https://onedrive.live.com/?authkey=%21AKoTHElgK3hNzhk&id=F900E1D4DA738D1C%215655&cid=F900E1D4DA738D1C",
+    "platform": "Windows",
+    "locale": {
+      "zh": {
+        "description": "本产品为一款使用串口传输协议完成数据远距离传输和文件自动化同步任务，同时支持远程文件拉取、传输进度监视以及断点续传等功能的小型工具类软件。"
+      }
+    }
+  },
+  {
+    "name": "RemoteManager",
+    "full_name": "CROP 集成式客户端软件",
+    "document": "",
+    "platform": "Windows",
+    "locale": {
+        "zh": {
+          "description": "本产品是一款能够完成远程维护基本功能，同时支持多协议数据接口通信、拥有较高稳定性和扩展性的终端操作软件，该程序是整个运维平台中负责数据基本处理、转发和显示功能的核心模块。"
+        }}
+  },
+  {
+    "name": "CROP-Cloud-Service",
+    "full_name": "CROP 云端服务组件",
+    "document": "",
+    "platform": "Docker",
+    "locale": {}
+  },
+  {
+    "name": "NIAS",
+    "full_name": "NIAS 网络智能分析系统",
+    "document": "https://onedrive.live.com/?authkey=%21AKoTHElgK3hNzhk&id=F900E1D4DA738D1C%215657&cid=F900E1D4DA738D1C",
+    "platform": "Windows",
+    "locale": {
+      "zh": {
+        "description": "本系统为一套能够即时监视局域网内多类网络数据、采用动态图形展示设备通信状态，同时可对通信故障进行追踪和报警作业的网络运维解决方案。"
+      }
+    }
+  },
+  {
+    "name": "StationStats",
+    "full_name": "TW-DARS 数据分析与展示系统",
+    "document": "https://www.craft.me/s/9Aq5fGevtDU8Nt",
+    "platform": "All",
+    "demo": "https://tw-dars.crscd.net",
+    "locale": {
+      "zh": {
+        "description": "本系统为一套采用数据可视化技术，能够对TW-2自动化控制系统所产生的历史数据进行智能化数据处理和数据展示工作的跨平台数据分析解决方案。"
+      }
+    }
+  },
+  {
+    "name": "NetSpector",
+    "full_name": "网络适配器快速设置工具",
+    "document": "",
+    "platform": "Windows",
+    "locale": {
+      "zh": {
+        "description": "本程序可通过简易快捷的操作流程，帮助作业人员快速完成工控机系统和网络相关的配置工作，同时提高配置过程的可靠性和准确性，提高系统运行的稳定性。"
+      }
+    }
+  },
+  {
+    "name": "SwitchQuickSetup",
+    "full_name": "交换机快速配置工具",
+    "document": "",
+    "platform": "All",
+    "locale": {
+        "zh": {
+          "description": "使用命令行工具实现交换机快速配置以及配置文件的导入导出功能，支持网络数据查询、密码修改、VLAN划分、SNMP设置等基础操作。"
+        }}
+  },
+  {
+    "name": "DatabaseManager-cs",
+    "full_name": "数据库快速管理器",
+    "document": "",
+    "platform": "Windows",
+    "locale": {}
+  },
+  {
+    "name": "TW-Interface",
+    "full_name": "数据通信接口程序",
+    "document": "",
+    "platform": "Windows",
+    "locale": {}
+  },
+  {
+    "name": "TW-DataBackup",
+    "full_name": "日志数据备份工具",
+    "document": "",
+    "platform": "Windows",
+    "locale": {}
+  }
+]
