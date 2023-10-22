@@ -1,10 +1,7 @@
 {
   "name": "app-collection",
-  "version": "1.0.1",
-  "repository": "https://github.com/Shinerising/app.git",
-  "author": "Apollo Wayne <waynezhaoyang@gmail.com>",
-  "license": "MIT",
-  "private": false,
+  "private": true,
+  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",

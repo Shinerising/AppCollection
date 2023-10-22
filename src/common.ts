@@ -35,6 +35,7 @@ export class Data {
       try {
         const repo = await this.fetchData<Repository>(`${Config.API}/${Config.Owner}/${item.name}`)
         const releases = await this.fetchData<Release[]>(`${Config.API}/${Config.Owner}/${item.name}/releases`)
+        console.log(releases);
         const node = this.generateNode(item, repo, releases, packages.filter(pkg => pkg.repository.full_name === repo.full_name))
         await this.applyNode(wrapper, node)
       } catch {

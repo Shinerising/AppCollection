@@ -47,24 +47,6 @@ export class App {
     this.addScrollHandler()
 
     Data.startFetching()
-
-    try {
-      await this.registerServiceWorker()
-    } catch (e) {
-      console.error(e)
-    }
-  }
-
-  /**
-   * Register Service Worker
-   */
-  private async registerServiceWorker () {
-    if ('serviceWorker' in navigator) {
-      await navigator.serviceWorker.register('service-worker.js')
-      navigator.serviceWorker.addEventListener('controllerchange', () => {
-        window.location.reload()
-      })
-    }
   }
 
   private async startTypingTitle (title: string) {
