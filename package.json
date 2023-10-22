@@ -11,7 +11,8 @@
     "ts-dev": "tsc -w",
     "ts-build": "tsc",
     "lint": "eslint src/*.ts",
-    "dev": "webpack serve --mode development",
+    "watch": "webpack --watch --mode development",
+    "dev": "webpack serve --mode development --config webpack.development.config.js",
     "build": "webpack --mode production"
   },
   "devDependencies": {

@@ -61,6 +61,9 @@ export class App {
   private async registerServiceWorker () {
     if ('serviceWorker' in navigator) {
       await navigator.serviceWorker.register('service-worker.js')
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        window.location.reload()
+      })
     }
   }
 

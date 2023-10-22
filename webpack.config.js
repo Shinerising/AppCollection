@@ -6,7 +6,26 @@ export default {
   plugins: [
     new GenerateSW({
       clientsClaim: true,
-      skipWaiting: true
+      skipWaiting: true,
+      runtimeCaching: [
+        {
+          urlPattern: new RegExp('^https://github-api.awayne.me/(.*)'),
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'api-request',
+            broadcastUpdate: {
+              channelName: 'api-request-update',
+              options: {
+                headersToCheck: ['Content-Type', 'Content-Length'],
+              },
+            },
+            expiration: {
+              maxEntries: 10,
+              maxAgeSeconds: 24 * 60 * 60
+            },
+          },
+        }
+      ]
     }),
     new CopyPlugin({
       patterns: [

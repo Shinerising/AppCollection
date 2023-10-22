@@ -1,5 +1,6 @@
 import { RepoInfo, Repository, Release, Package } from './app.interface'
 import { Config } from './config'
+import { _, culture } from './locale'
 
 export class Util {
   public static async timeout(delay: number): Promise<boolean> {
@@ -61,12 +62,12 @@ export class Data {
 <div class="repo-icon">
 <img src="${Config.Content}/${repo.full_name}/contents/icon.png" alt="${repo.name}">
 </div>
-<h2 class="repo-title"><a href="${repo.html_url}">${info.full_name || repo.name}</a></h2>
+<h2 class="repo-title"><a href="${repo.html_url}">${info.locale[culture]?.full_name || info.full_name || repo.name}</a></h2>
 </div>
 <div class="repo-labelbox">
 <span>${repo.language}</span>${repo.topics.map(item => `<span>${item}</span>`).join('')}
 </div>
-<p class="repo-description">${repo.description}</p>
+<p class="repo-description">${repo.description ?? _("BRIEF_NULL")}</p>
 <ul class="repo-property">
 <li class="icon-monitor" title="Platform">${info.platform}</li>
 <li class="icon-tag" title="Latest version">${releaseNormal?.tag_name.toUpperCase() || 'Preview'}</li>
@@ -75,9 +76,9 @@ export class Data {
 </ul>
 </div>
 <div class="repo-link">
-<a class="link-github icon-book-open" href="${info.document}">Document</a>
-<a class="link-github icon-download" href="${releasePreview?.assets[0] ? `${releasePreview.assets[0].url.replace('https://api.github.com/repos', Config.Download)}?file=${releasePreview.assets[0].name}` : ''}">Preview</a>
-<a class="link-github icon-download" href="${releaseNormal?.assets[0] ? `${releaseNormal.assets[0].url.replace('https://api.github.com/repos', Config.Download)}?file=${releaseNormal.assets[0].name}` : ''}">Package ${releaseNormal?.tag_name.toUpperCase() || 'Release'}</a>
+<a class="link-github icon-book-open" href="${info.document}">${_("BUTTON_DOCUMENT")}</a>
+<a class="link-github icon-download" href="${releasePreview?.assets[0] ? `${releasePreview.assets[0].url.replace('https://api.github.com/repos', Config.Download)}?file=${releasePreview.assets[0].name}` : ''}">${_("BUTTON_PREVIEW")}</a>
+<a class="link-github icon-download" href="${releaseNormal?.assets[0] ? `${releaseNormal.assets[0].url.replace('https://api.github.com/repos', Config.Download)}?file=${releaseNormal.assets[0].name}` : ''}">${_("BUTTON_PACKAGE")} ${releaseNormal?.tag_name.toUpperCase() || 'Release'}</a>
 ${packageContent}
 </div>
     `

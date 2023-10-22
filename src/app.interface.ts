@@ -3,6 +3,19 @@ export interface RepoInfo {
   full_name: string;
   document: string;
   platform: string;
+  description?: string;
+  locale: {
+    en?: {
+      full_name?: string;
+      description?: string;
+      document?: string;
+    },
+    zh?: {
+      full_name?: string;
+      description?: string;
+      document?: string;
+    }
+  }
 }
 export interface Asset {
   url: string;
