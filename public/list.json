@@ -18,14 +18,19 @@
     "locale": {
         "zh": {
           "description": "本产品是一款能够完成远程维护基本功能，同时支持多协议数据接口通信、拥有较高稳定性和扩展性的终端操作软件，该程序是整个运维平台中负责数据基本处理、转发和显示功能的核心模块。"
-        }}
+        }
+    }
   },
   {
     "name": "CROP-Cloud-Service",
     "full_name": "CROP 云端服务组件",
     "document": "",
     "platform": "Docker",
-    "locale": {}
+    "locale": {
+        "zh": {
+          "description": "用于提供CROP网络通信功能的基础服务，管理各类网络通信接口并对数据进行处理和存储，支持动态数据和文件类数据，并对其他服务进行管理。"
+        }
+    }
   },
   {
     "name": "NIAS",
