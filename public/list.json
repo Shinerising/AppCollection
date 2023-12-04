@@ -74,7 +74,15 @@
     "locale": {
         "zh": {
           "description": "使用命令行工具实现交换机快速配置以及配置文件的导入导出功能，支持网络数据查询、密码修改、VLAN划分、SNMP设置等基础操作。"
-        }}
+        }
+    }
+  },
+  {
+    "name": "dcy-core",
+    "full_name": "编组场安全防护系统",
+    "document": "",
+    "platform": "Windows",
+    "locale": {}
   },
   {
     "name": "DatabaseManager-cs",
