@@ -78,6 +78,13 @@
     }
   },
   {
+    "name": "GraphDeliver",
+    "full_name": "设备状态实时传输工具",
+    "document": "",
+    "platform": "Windows",
+    "locale": {}
+  },
+  {
     "name": "dcy-core",
     "full_name": "编组场安全防护系统",
     "document": "",
