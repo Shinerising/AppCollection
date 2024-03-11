@@ -2,7 +2,7 @@
   {
     "name": "ComTransfer",
     "full_name": "自动化串口文件传输工具",
-    "document": "https://onedrive.live.com/?authkey=%21AKoTHElgK3hNzhk&id=F900E1D4DA738D1C%215655&cid=F900E1D4DA738D1C",
+    "document": "https://file.crscd.net/说明书/自动化串口文件传输工具说明书.pdf",
     "platform": "Windows",
     "locale": {
       "zh": {
@@ -13,7 +13,7 @@
   {
     "name": "RemoteManager",
     "full_name": "CROP 集成式客户端软件",
-    "document": "",
+    "document": "https://file.crscd.net/说明书/CROP 编组场远程运维平台客户端程序操作说明书.pdf",
     "platform": "Windows",
     "locale": {
         "zh": {
