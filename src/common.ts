@@ -132,6 +132,7 @@ ${packageContent}
 export class DOM {
   public static card: HTMLElement
   public static collection: HTMLElement
+  public static searchBox: HTMLInputElement
 
   /**
    * Load common nodes
@@ -139,7 +140,9 @@ export class DOM {
   public static load() {
     this.card = document.querySelector(".card") as HTMLElement
     this.collection = document.querySelector(".collection") as HTMLElement
+    this.searchBox = document.querySelector("#textInput") as HTMLInputElement
 
+    this.searchBox.placeholder = _("SEARCH_PLACEHOLDER")
     DOM.query("title").textContent = _("SITE_TITLE")
     DOM.query("#sitename").textContent = _("PAGE_TITLE")
   }

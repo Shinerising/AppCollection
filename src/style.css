@@ -124,7 +124,7 @@ input {
 }
 
 header {
-  position: fixed;
+  position: relative;
   width: 100%;
   text-align: center;
 }
@@ -142,9 +142,95 @@ header {
   margin: 1rem 0;
 }
 
+nav {
+  position: relative;
+  margin-top: 8rem;
+}
+
+#searchBar {
+  width: 30em;
+  height: 3.2em;
+  margin: 8rem auto;
+  position: relative;
+  opacity: .8;
+  transition: 0.5s opacity;
+}
+
+#searchBar>.backglass {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, .6);
+  mask: url('data:image/svg+xml;utf8,<svg preserveAspectRatio="none" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg"><path d="M 100 0 c -90 0 -100 10 -100 100 c 0 90 10 100 100 100 l 600 0 c 90 0, 100 -10, 100 -100 c 0 -90, -10 -100, -100 -100Z" fill="white"></path></svg>');
+  mask-size: 100% 100%;
+  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg preserveAspectRatio="none" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg"><path d="M 100 0 c -90 0 -100 10 -100 100 c 0 90 10 100 100 100 l 600 0 c 90 0, 100 -10, 100 -100 c 0 -90, -10 -100, -100 -100Z" fill="white"></path></svg>');
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  transition: 0.5s background;
+}
+
+#searchBar:hover {
+  opacity: 1;
+}
+
+#searchBar:hover>.backglass {
+  background: rgba(255, 255, 255, .9);
+}
+
+#searchBar.searchBarFocused {
+  opacity: 1;
+}
+
+#textInputIcon {
+  position: absolute;
+  top: .9em;
+  left: .9em;
+  width: 1.5em;
+  height: 1.5em;
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHN2ZyAgUFVCTElDICctLy9XM0MvL0RURCBTVkcgMS4xLy9FTicgICdodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQnPgo8c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDQ4NS4yMTMgNDg1LjIxMyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgNDg1LjIxIDQ4NS4yMSIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsPSIjNDU1QTY0Ij4KCQk8cGF0aCBkPSJtMzYzLjkxIDE4MS45NmMwLTEwMC40OC04MS40NjktMTgxLjk2LTE4MS45NS0xODEuOTYtMTAwLjQ4IDAtMTgxLjk2IDgxLjQ3My0xODEuOTYgMTgxLjk2czgxLjQ3MyAxODEuOTUgMTgxLjk2IDE4MS45NWMxMDAuNDggMCAxODEuOTUtODEuNDY5IDE4MS45NS0xODEuOTV6bS0xODEuOTUgMTM2LjQ2Yy03NS4yNTIgMC0xMzYuNDYtNjEuMjA4LTEzNi40Ni0xMzYuNDZzNjEuMjEzLTEzNi40NiAxMzYuNDYtMTM2LjQ2Yzc1LjI1IDAgMTM2LjQ3IDYxLjIxMyAxMzYuNDcgMTM2LjQ2cy02MS4yMTggMTM2LjQ2LTEzNi40NyAxMzYuNDZ6Ii8+CgkJPHBhdGggZD0ibTQ3MS44OCA0MDcuNTctMTExLjMyLTExMS4zMmMtMTYuNTg2IDI1Ljc5NS0zOC41MzYgNDcuNzM0LTY0LjMzMSA2NC4zMjFsMTExLjMyIDExMS4zMmMxNy43NzIgMTcuNzY4IDQ2LjU4NyAxNy43NjggNjQuMzIxIDAgMTcuNzczLTE3LjczOSAxNy43NzMtNDYuNTU0IDFlLTMgLTY0LjMyMXoiLz4KPC9zdmc+Cg==) no-repeat;
+}
+
+#textInput {
+  position: absolute;
+  border: none;
+  top: 0.35em;
+  left: 2em;
+  width: calc(100% - 2.4em);
+  font-size: 1.6em;
+  line-height: 1.3em;
+  padding: 0em;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: #455A64;
+  -webkit-appearance: unset;
+}
+
+#textInput::placeholder {
+  color: black;
+  opacity: .4;
+}
+
+#textInput:focus {
+  outline: none;
+}
+
+#textInputPrewords {
+  position: absolute;
+  width: 18em;
+  top: 0.5em;
+  left: 2em;
+  font-size: 2em;
+  line-height: 1em;
+  font-family: Roboto;
+  color: gray;
+}
+
 main {
   position: relative;
-  padding-top: 3rem;
   overflow: auto;
 }
 
@@ -197,6 +283,10 @@ main {
 .repo.visible {
   opacity: 1;
   transform: none;
+}
+
+.repo.filtered {
+  display: none;
 }
 
 .repo-cover {
@@ -457,6 +547,28 @@ footer>.info {
     background-color: rgba(0, 0, 0, .5);
   }
 
+  #searchBar>.backglass {
+    background: rgba(0, 0, 0, .5);
+  }
+
+  #searchBar:hover>.backglass {
+    background: rgba(0, 0, 0, .8);
+  }
+
+  #textInputIcon,
+  #settingIcon {
+    filter: invert();
+  }
+
+  #textInput {
+    color: #CFD8DC;
+  }
+
+  #textInput::placeholder {
+    color: whitesmoke;
+  }
+
+
   .card {
     background-color: #12161FB0;
     box-shadow: rgba(50, 50, 93, 0.25) 0rem 1rem 2rem -.5rem, rgba(0, 0, 0, 0.3) 0rem .5rem 1rem -.6rem;
@@ -464,7 +576,7 @@ footer>.info {
 
   #sitename {
     background-color: #51aadd;
-    background-image: linear-gradient(to right bottom, #2496ac, #51aadd);  
+    background-image: linear-gradient(to right bottom, #2496ac, #51aadd);
   }
 
   .repo {

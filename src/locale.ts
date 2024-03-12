@@ -8,8 +8,9 @@ const locale = {
     "BUTTON_PACKAGE": "Package",
     "BUTTON_GITHUB": "Source code",
     "BUTTON_DEMO": "Demo",
+    "SEARCH_PLACEHOLDER": "Search",
     "LABEL_PREVIEW": "Preview",
-    "LABEL_PLATFORM_ALL": "Cross-platform"
+    "LABEL_PLATFORM_ALL": "All"
   },
   zh: {
     "SITE_TITLE": "软件集合",
@@ -20,6 +21,7 @@ const locale = {
     "BUTTON_PACKAGE": "下载",
     "BUTTON_GITHUB": "查看源代码",
     "BUTTON_DEMO": "查看示例",
+    "SEARCH_PLACEHOLDER": "关键词搜索",
     "LABEL_PREVIEW": "预览版本",
     "LABEL_PLATFORM_ALL": "全平台"
   }
