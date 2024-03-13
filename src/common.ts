@@ -53,14 +53,16 @@ export class Data {
     const releaseNormal = releases.filter(item => !item.prerelease)[0]
     const releasePreview = releases.filter(item => item.prerelease)[0]
     const packageContent = packages.map(pkg => `<a class="link-github icon-docker" href="${pkg.html_url}">${pkg.name}</a>`)
+    const coverUrl = `${Config.ImageProxy}?url=${Config.Content}/${repo.full_name}/contents/preview.jpg`
+    const iconUrl = `${Config.ImageProxy}?url=${Config.Content}/${repo.full_name}/contents/icon.png`
     return `
 <div class="repo-cover">
-<img src="${Config.Content}/${repo.full_name}/contents/preview.jpg" alt="${repo.description}"/>
+<img src="${coverUrl}" srcset="${coverUrl}&w=480&h=320h 480w, ${coverUrl}&w=960&h=640 960w, ${coverUrl}&w=1440&h=960 1440w" sizes="(max-width: 800px) 90vw, (max-width: 1440px) 45vw, 480px" loading="lazy" alt="${repo.description}"/>
 </div>
 <div class="repo-info">
 <div class="repo-header">
 <div class="repo-icon">
-<img src="${Config.Content}/${repo.full_name}/contents/icon.png" alt="${repo.name}">
+<img src="${iconUrl}" srcset="${iconUrl}&w=64&h=64 1x, ${iconUrl}&w=128&h=128 2x" alt="${repo.name}">
 </div>
 <div class="repo-labelbox">
 <span>${repo.language}</span>${repo.topics.map(item => `<span>${item}</span>`).join("")}

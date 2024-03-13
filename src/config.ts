@@ -5,4 +5,5 @@ export class Config {
   public static User = "https://github-api.crscd.net/users"
   public static Content = "https://github-api.crscd.net/content"
   public static Download = "https://github-api.crscd.net/download"
+  public static ImageProxy = "https://github-api.crscd.net/img"
 }
