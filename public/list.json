@@ -22,17 +22,6 @@
     }
   },
   {
-    "name": "CROP-Cloud-Service",
-    "full_name": "CROP 云端服务组件",
-    "document": "",
-    "platform": "Docker",
-    "locale": {
-        "zh": {
-          "description": "用于提供CROP网络通信功能的基础服务，管理各类网络通信接口并对数据进行处理和存储，支持动态数据和文件类数据，并对其他服务进行管理。"
-        }
-    }
-  },
-  {
     "name": "NIAS",
     "full_name": "NIAS 网络智能分析系统",
     "document": "https://file.crscd.net/说明书/NIAS 网络智能分析系统 产品说明书.pdf",
@@ -53,6 +42,61 @@
       "zh": {
         "description": "本系统为一套采用数据可视化技术，能够对TW-2自动化控制系统所产生的历史数据进行智能化数据处理和数据展示工作的跨平台数据分析解决方案。"
       }
+    }
+  },
+  {
+    "name": "CROP-Cloud-Service",
+    "full_name": "CROP 云端通信接口服务",
+    "document": "",
+    "platform": "Docker",
+    "locale": {
+        "zh": {
+          "description": "用于提供CROP网络通信功能的基础服务，管理各类网络通信接口并对数据进行处理和存储，支持动态数据和文件类数据，并对其他服务进行管理。"
+        }
+    }
+  },
+  {
+    "name": "CROP-Data-Analysis",
+    "full_name": "CROP 云端数据分析服务",
+    "document": "",
+    "platform": "Docker",
+    "locale": {
+        "zh": {
+          "description": "对各类动态数据、文本配置以及日志类数据库内容进行自动化分析，完成数据格式化后并生成表单式统计结果，并存储至数据库服务以供查阅。"
+        }
+    }
+  },
+  {
+    "name": "crop-reverse-proxy",
+    "full_name": "CROP 云端通信代理服务",
+    "document": "",
+    "platform": "Docker",
+    "locale": {
+        "zh": {
+          "description": "用于管理各项服务的网络通信反向代理功能，同时提供域名定向、自动证书生成等功能。"
+        }
+    }
+  },
+  {
+    "name": "CROP-Graph-Proxy",
+    "full_name": "CROP 云端图形显示服务",
+    "document": "",
+    "platform": "Docker",
+    "locale": {
+        "zh": {
+          "description": ""
+        }
+    }
+  },
+  {
+    "name": "crop-dashboard",
+    "full_name": "CROP 数据监视界面",
+    "document": "",
+    "platform": "Docker",
+    "locale": {
+        "zh": {
+          "description": ""
+        }
     }
   },
   {
